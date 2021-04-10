@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+        source:
+    https://leftyfretz.com/
+    google images   
+        
+    -->
+
+<head>
+    <title>Page Title</title>
+
+
+    <style>
+        #container {
+    height: 400px; 
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Base script comes here-->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+<div id="container" style="height: 400px"></div>
+    
+
+    <!-- Custom script comes here-->
+    <script>
+     Highcharts.chart('container', {
+    chart: {
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15
+        }
+    },
+    title: {
+        text: 'Left Handers '
+    },
+    xAxis: {
+        categories: ['Netherlands', 'U.S', 'Canada', 'India', 'Morocco']
+    },
+    yAxis: {
+        title: {
+            text: 'Percentage of Left_handers'
+        }
+    },
+    plotOptions: {
+        series: {
+            depth: 40,
+            grouping: false,
+            groupZPadding: 10
+        }
+    },
+    series: [{
+        name: 'Country',
+        data: [13.5, 13, 12, 5, 2]
+    }]
+});   
+    </script>
+
+</body>
+
+</html>
