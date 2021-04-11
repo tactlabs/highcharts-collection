@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Birth Rate per Year in Countries</title>
+  
+  <link rel="stylesheet" href="./style.css">
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+<div id="container" style="height: 400px"></div>
+<!-- partial -->
+<script>Highcharts.chart('container', {
+  chart: {
+    margin: 75,
+    type: 'column',
+    options3d: {
+      enabled: true,
+      alpha: 30,
+      beta: 10,
+      depth: 50
+    }
+  },
+  title: {
+                text: 'Birth Rate per Year by Countries'
+            },
+
+  xAxis: {
+    type: 'category'
+  },
+  plotOptions: {
+    column: {
+      depth: 35
+    }
+  },
+  series: [{
+    colorByPoint: true,
+    name: 'Birth Rate per 1000 people',
+    data: [{
+      name: 'Canada',
+      y: 10.224,
+      drilldown: 'Canada'
+    }, {
+      name: 'India',
+      y: 17.377,
+      drilldown: 'India'
+    }, {
+      name: 'USA',
+      y: 12.001,
+      drilldown: 'USA'
+    },{
+      name: 'Russia',
+      y: 11.904,
+      drilldown: 'Russia'
+    },{
+      name: 'China',
+      y: 11.159,
+      drilldown: 'China'
+    }],
+    stack: 0
+  }],
+  drilldown: {
+    series: [{
+      id: 'Canada',
+      name: 'Canada',
+      data: [{
+        name: 'Hamsters',
+        y: 2
+      }, {
+        name: 'Rabbits',
+        y: 3
+      }, {
+        name: 'Squirrels',
+        y: 1
+      }]
+    }, {
+      id: 'cars',
+      name: 'Cars',
+      data: [{
+        name: 'Skoda',
+        y: 5
+      }, {
+        name: 'Toyota',
+        y: 3
+      }, {
+        name: 'Ford',
+        y: 4
+      }, {
+        name: 'Subaru',
+        y: 6
+      }]
+    },{
+      id: 'fruits',
+      name: 'Fruits',
+      data: [{
+        name: 'Bananas',
+        y: 4
+      }, {
+        name: 'Apples',
+        y: 3
+      }, {
+        name: 'Oranges',
+        y: 2
+      }, {
+        name: 'Mango',
+        y: 0
+      }, {
+        name: 'Pears',
+        y: 3
+      }] 
+    }]
+  }
+});</script>
+
+</body>
+</html>
