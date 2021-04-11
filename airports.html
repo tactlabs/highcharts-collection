@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+        source:
+
+     
+    -->
+
+<head>
+    <title>Airports in Countries</title>
+
+
+    <style>
+        #container {
+            height: 400px;
+        }
+    
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Base script comes here-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Top 10 countries with the highest number of airports in the world.
+        </p>
+    
+    </figure>
+
+    <!-- Custom script comes here-->
+    <script>
+        // Set up the chart
+        const chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column',
+                options3d: {
+                    enabled: true,
+                    alpha: 15,
+                    beta: 15,
+                    depth: 50,
+                    viewDistance: 25
+                }
+            },
+            title: {
+                text: 'AIRPORTS IN VARIOUS COUNTRIES'
+            },
+
+            plotOptions: {
+                column: {
+                    depth: 25
+                }
+            },
+
+
+
+            xAxis: {
+                categories: ['United States', 'Brazil', 'Mexico', 'Canada', 'Russia', 'Argentina', 'Colombia', 'Bolivia', 'Paraguay', 'Indonesia']
+            },
+            series: [{
+                name: 'Airports',
+                data: [20303, 8988, 1714, 1620, 1218, 1138, 992, 952, 799, 683]
+            }]
+        });
+
+        function showValues() {
+            document.getElementById('alpha-value').innerHTML = chart.options.chart.options3d.alpha;
+            document.getElementById('beta-value').innerHTML = chart.options.chart.options3d.beta;
+            document.getElementById('depth-value').innerHTML = chart.options.chart.options3d.depth;
+        }
+
+        // Activate the sliders
+        document.querySelectorAll('#sliders input').forEach(input => input.addEventListener('input', e => {
+            chart.options.chart.options3d[e.target.id] = parseFloat(e.target.value);
+            showValues();
+            chart.redraw(false);
+        }));
+
+        showValues();
+
+
+    </script>
+    
+    </body>
+    
+    </html>

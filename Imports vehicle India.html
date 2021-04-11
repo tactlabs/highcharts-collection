@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+        source:
+
+       
+        
+    -->
+
+<head>
+    <title>Page Title</title>
+
+
+    <style>
+      #container {
+    height: 400px; 
+    min-width: 310px; 
+    max-width: 800px;
+    margin: 0 auto;
+}
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Base script comes here-->
+    
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+<div id="container" style="height: 400px"></div>
+    
+
+    <!-- Custom script comes here-->
+    <script>
+       Highcharts.chart('container', {
+    chart: {
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            depth: 250,
+            frame: {
+                bottom: {
+                    size: 2,
+                    color: '#C0C0C0'
+                }
+            }
+        }
+    },title: {
+        text: 'Imports of vehicles into India By USD Million'
+    },
+    xAxis: {
+        categories: ['2011','2012','2013','2014','2015','2016','2017','2018','2019','2020',]
+    },
+    yAxis: {
+        title: {
+            text: 'Number Of Imports'
+        }
+    },
+    plotOptions: {
+        column: {
+            depth: 50,
+            groupZPadding: 100
+        }
+    },
+    series: [{
+        Name:'Imports',data: [5163.77,4932.36,4475.7,2873.96,2577.58,58.14,5844,3241.91,3546.7,893.1]
+        }]
+        
+        });
+
+    </script>
+
+</body>
+
+</html>
