@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+        source:
+
+        https://jsfiddle.net/648mfhzw/2/
+       
+        
+-->
+
+<head>
+    <title>IT Jobs Canada</title>
+
+
+<style>
+.container {
+    max-width: 800px;
+    height: 400px;
+    margin: 3em auto;
+}
+
+caption {
+	padding-bottom: 15px;
+	font-family: 'Verdana';
+	font-size: 1.2em;
+	color:#555;
+}
+
+table {
+	font-family: 'Verdana';
+	font-size: 12pt;          
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+    text-align: center;
+    width: 100%;
+}
+
+table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table tr:nth-child(even) {
+  background-color: #FCF9F9;
+}
+
+th {
+	font-weight: 600;
+    padding: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <!-- Base script comes here-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <div id="container-pie" class="container"></div>
+
+    
+
+    <!-- Custom script comes here-->
+<script>
+        
+
+
+// Second chart
+// source: https://blog.y-axis.com/which-province-in-canada-has-more-job-opportunities-2020/
+// https://jsfiddle.net/648mfhzw/1/
+
+// Make monochrome colors and set them as default for all pies
+Highcharts.getOptions().plotOptions.pie.colors = (function () {
+    var colors = [],
+        base = Highcharts.getOptions().colors[0],
+        i;
+
+    for (i = 0; i < 10; i += 1) {
+        // Start out with a darkened base color (negative brighten), and end
+        // up with a much brighter color
+        colors.push(Highcharts.color(base).brighten((i - 3) / 10).get());
+    }
+    return colors;
+}());
+
+Highcharts.chart('container-pie', {
+    chart: {
+        type: 'pie'
+    },
+
+    caption: {
+        text: 'Forest Land distribution in canadian geography'
+    },
+
+    title: {
+        text: 'Forest Land in Canada'
+    },
+
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                connectorColor: Highcharts.getOptions().colors[0],
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            },
+            point: {
+                events: {
+                    click: function () {
+                        window.location.href = this.website;
+                    }
+                }
+            },
+            cursor: 'pointer'
+        }
+    },
+
+    series: [{
+        name: 'Percentage usage',
+        borderColor: Highcharts.getOptions().colors[0],
+        data: [{
+            name: 'Public Forest Land owned by Govt',
+            y: 4.4
+        },
+        {
+            name: 'Privately owned Forest land',
+            y: 6.5 
+        },
+        {
+            name: 'Public Forest Land owned by provinces',
+            y: 89.1
+        }
+        ]
+    }]
+});
+
+
+
+</script>
+
+</body>
+
+</html>
