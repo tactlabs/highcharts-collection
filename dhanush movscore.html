@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+        source:
+
+       
+        
+    -->
+
+<head>
+    <title>Dhanush movie score</title>
+
+
+    <style>.container {
+        max-width: 800px;
+        height: 400px;
+        margin: 4em auto;
+    }
+    
+    caption {
+        padding-bottom: 15px;
+        font-family: 'Verdana';
+        font-size: 1.2em;
+        color:#555;
+    }
+    
+    table {
+        font-family: 'Verdana';
+        font-size: 12pt;          
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+    }
+    
+    table tr:nth-child(odd) {
+      background-color: #fff;
+    }
+    
+    table tr:nth-child(even) {
+      background-color: #FCF9F9;
+    }
+    
+    th {
+        font-weight: 600;
+        padding: 10px;
+    }
+    
+        
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Base script comes here-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <div id="container-column" class="container"></div>
+    <div id="container-line" class="container"></div>
+    <div id="container-pie" class="container"></div>
+    
+    
+
+    <!-- Custom script comes here-->
+    <script>
+        // Column chart
+Highcharts.chart('container-column', {
+    chart: {
+        type: 'column'
+    },
+    
+    title: {
+        text: 'Dhanush movie score '
+    },
+    legend: {
+        enabled: false
+    },
+    yAxis: {
+        title: {
+            text: 'Score'
+        },
+        labels: {
+            format: '{value}'
+        }
+    },
+    tooltip: {
+        headerFormat: '',
+        pointFormat: '<span style="color:{point.color}">\u25CF</span> {point.category}: <b>{point.y}</b>'
+    },
+    xAxis: {
+        categories: ['thulluvadho ilamai','kaadhal kondhen', 'thiruda thirudi','puthukondaiil erundhu saravanan','sullan','dreams','devathaiyai kanden','adhu oru kana kaalam', 'pudhupettai', 'thiruvilaiyadal arambham', 'parattai engira azhagu sundaram', 'polladhavan','Yaaradi Nee Mohini','Padikkadavan','Kutty','Uthamaputhiran','Aadukalam','Seedan','Mappillai','Venghai','Mayakkam Enna','3:Raanjhanaa:Maryan:Naiyaandi:Velaiilla Pattadhari:Shamitabh:Anegan:Vai Raja Vai','Maari','Thanga Magan','Thodari','Kodi','Pa Paandi','Velaiilla Pattadhari 2','The Extraordinary Journey of the Fakir','Vada Chennai','Maari 2','Asuran','Enai Noki Paayum Thota','Pattas','Karnan']
+    },
+    series: [{
+        name: 'Disability types',
+        colorByPoint: true,
+        dataLabels: {
+            enabled: true,
+            format: '{y}'
+        },
+        data: [5,5,7,5,5,4,3,4,7 ,8,8,8,8,8,8,4,6,8,8,4,5,4,9,5,3,6,6,4,4,8,6,4,6,9,10]
+    }]
+});
+    </script>
+
+</body>
+
+</html>
