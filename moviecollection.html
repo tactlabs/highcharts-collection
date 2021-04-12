@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+        source:
+
+       
+        
+    -->
+
+<head>
+    <title>Box Office Movie Collection</title>
+
+
+    <style>
+        .container {
+        max-width: 800px;
+        height: 400px;
+        margin: 3em auto;
+    }
+
+    caption {
+        padding-bottom: 15px;
+        font-family: 'Verdana';
+        font-size: 1.2em;
+        color:#555;
+    }
+
+    table {
+        font-family: 'Verdana';
+        font-size: 12pt;          
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    table tr:nth-child(odd) {
+    background-color: #fff;
+    }
+
+    table tr:nth-child(even) {
+    background-color: #FCF9F9;
+    }
+
+    th {
+        font-weight: 600;
+        padding: 10px;
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Base script comes here-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <div id="container-pie-3d" class="container"></div>
+
+    
+
+    <!-- Custom script comes here-->
+    <script>
+        
+
+    Highcharts.chart('container-pie-3d', {
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 55,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Movie Box Office Collection'
+        },
+
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+
+        series: [{
+            name: 'Collection in Crores',
+            depth: 20,
+            data: [{
+                name: 'Thuppakki',
+                y: 180,
+                color: '#991111'
+            }, {
+                name: 'Dasavathaaram',
+                y: 200,
+                color: '#7cc49a'
+            }, {
+                name: 'Theri',
+                y: 175,
+                color: '#7284a3'
+            },
+            {
+                name: 'Enthiran 2.0',
+                y: 800,
+                color: '#bb3333'
+            },
+            {
+                name: 'Darbar',
+                y: 200,
+                color: '#0e1d2e'
+            },
+            {
+                name: 'Master',
+                y: 300,
+                color: '#275096'
+            }]
+        }]
+    });
+
+    </script>
+
+</body>
+
+</html>
